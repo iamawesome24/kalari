@@ -479,14 +479,14 @@ export default function Home() {
                       </p>
                     </div>
                     {/* Contact */}
-                    <div className="space-y-4 mt-4 md:mt-0">
-                      <div className="p-4 bg-amber-50 rounded-lg border border-amber-200 shadow-sm text-center md:text-left">
+                    <div className="space-y-4 mt-4 md:mt-0 w-full flex flex-col items-stretch">
+                      <div className="w-full p-4 bg-amber-50 rounded-lg border border-amber-200 shadow-sm text-center md:text-left">
                         <p className="text-sm text-amber-700 font-semibold mb-1">
                           Phone
                         </p>
                         <p className="text-lg text-slate-800">+91 8149306531</p>
                       </div>
-                      <div className="p-4 bg-amber-50 rounded-lg border border-amber-200 shadow-sm text-center md:text-left">
+                      <div className="w-full p-4 bg-amber-50 rounded-lg border border-amber-200 shadow-sm text-center md:text-left">
                         <p className="text-sm text-amber-700 font-semibold mb-1">
                           Email
                         </p>
@@ -497,7 +497,7 @@ export default function Home() {
                           mihirraut1003@gmail.com
                         </a>
                       </div>
-                      <div className="p-4 bg-amber-50 rounded-lg border border-amber-200 shadow-sm">
+                      <div className="w-full p-4 bg-amber-50 rounded-lg border border-amber-200 shadow-sm">
                         <p className="text-sm text-amber-700 font-semibold mb-2 text-center md:text-left">
                           Connect With Us
                         </p>
