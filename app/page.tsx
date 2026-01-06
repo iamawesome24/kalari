@@ -120,7 +120,15 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-amber-900/20 via-orange-900/10 to-red-900/20" />
 
           {/* CONTENT - TOP RIGHT, shifted slightly left and down */}
-          <div className="absolute top-28 right-16 z-10 max-w-lg text-right">
+          <div
+            className="
+              absolute top-28
+              left-1/2 -translate-x-1/2
+              text-center
+              z-10 max-w-lg
+              md:left-auto md:translate-x-0 md:right-16 md:text-right
+            "
+          >
             <motion.h1
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
