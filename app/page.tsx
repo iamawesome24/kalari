@@ -432,15 +432,17 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-8 text-center md:text-left bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
             Instructor
           </h2>
+
           <Card className="bg-amber-50 border-amber-300/60 shadow-2xl shadow-amber-200/50">
             <CardContent className="p-8 md:p-10">
               <div className="grid md:grid-cols-3 gap-8">
-                <div className="md:col-span-1">
+                {/* Image */}
+                <div className="md:col-span-1 flex justify-center">
                   <motion.div
-                    className="relative aspect-square rounded-lg overflow-hidden shadow-lg border-4 border-amber-200"
+                    className="relative aspect-square w-64 md:w-full rounded-lg overflow-hidden shadow-lg border-4 border-amber-200"
                     whileHover={{ scale: 1.05, rotate: 2 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -459,37 +461,32 @@ export default function Home() {
                     />
                   </motion.div>
                 </div>
+                {/* Content */}
                 <div className="md:col-span-2">
                   <div className="grid md:grid-cols-2 gap-8">
+                    {/* Bio */}
                     <div>
-                      <h3 className="text-3xl font-bold mb-4 text-amber-700">
+                      <h3 className="text-3xl font-bold mb-4 text-amber-700 text-center md:text-left">
                         Mihir Raut
                       </h3>
-                      <div className="h-1 w-24 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full mb-4"></div>
-                      <p className="text-slate-700 leading-relaxed mb-4">
+                      <div className="h-1 w-24 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full mb-4 mx-auto md:mx-0"></div>
+                      <p className="text-slate-700 leading-relaxed mb-4 text-center md:text-left">
                         Certified Kalaripayattu Trainer from ENS Kalari, Embram
                         Madam, Nettoor, Ernakulam District, Kerala – 682304
                       </p>
-                      <p className="text-amber-700 font-medium">
+                      <p className="text-amber-700 font-medium text-center md:text-left">
                         Authorised by EN S Kalari, Nettoor, Kerala, South India
                       </p>
-                      {/* <a
-                        href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 mt-3 text-red-600 font-medium hover:underline"
-                      >
-                        🎙️ Watch Podcast on YouTube
-                      </a> */}
                     </div>
-                    <div className="space-y-4">
-                      <div className="p-4 bg-amber-50 rounded-lg border border-amber-200 shadow-sm">
+                    {/* Contact */}
+                    <div className="space-y-4 mt-6 md:mt-0">
+                      <div className="p-4 bg-amber-50 rounded-lg border border-amber-200 shadow-sm text-center md:text-left">
                         <p className="text-sm text-amber-700 font-semibold mb-1">
                           Phone
                         </p>
                         <p className="text-lg text-slate-800">+91 8149306531</p>
                       </div>
-                      <div className="p-4 bg-amber-50 rounded-lg border border-amber-200 shadow-sm">
+                      <div className="p-4 bg-amber-50 rounded-lg border border-amber-200 shadow-sm text-center md:text-left">
                         <p className="text-sm text-amber-700 font-semibold mb-1">
                           Email
                         </p>
@@ -501,10 +498,11 @@ export default function Home() {
                         </a>
                       </div>
                       <div className="p-4 bg-amber-50 rounded-lg border border-amber-200 shadow-sm">
-                        <p className="text-sm text-amber-700 font-semibold mb-2">
+                        <p className="text-sm text-amber-700 font-semibold mb-2 text-center md:text-left">
                           Connect With Us
                         </p>
-                        <div className="flex gap-4 items-center">
+
+                        <div className="flex gap-6 items-center justify-center md:justify-start">
                           <a
                             href="https://wa.me/918149306531"
                             target="_blank"
