@@ -425,24 +425,24 @@ export default function Home() {
       </section>
 
       {/* Instructor */}
-      <section className="py-20 px-6 max-w-6xl mx-auto">
+      <section className="py-16 px-6 max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold mb-8 text-center md:text-left bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center md:text-left bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
             Instructor
           </h2>
 
           <Card className="bg-amber-50 border-amber-300/60 shadow-2xl shadow-amber-200/50">
-            <CardContent className="p-8 md:p-10">
-              <div className="grid md:grid-cols-3 gap-8">
+            <CardContent className="p-6 md:p-10">
+              <div className="grid md:grid-cols-3 gap-8 md:gap-10 items-center">
                 {/* Image */}
                 <div className="md:col-span-1 flex justify-center">
                   <motion.div
-                    className="relative aspect-square w-64 md:w-full rounded-lg overflow-hidden shadow-lg border-4 border-amber-200"
+                    className="relative aspect-square w-40 sm:w-56 md:w-full rounded-lg overflow-hidden shadow-lg border-4 border-amber-200"
                     whileHover={{ scale: 1.05, rotate: 2 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -466,7 +466,7 @@ export default function Home() {
                   <div className="grid md:grid-cols-2 gap-8">
                     {/* Bio */}
                     <div>
-                      <h3 className="text-3xl font-bold mb-4 text-amber-700 text-center md:text-left">
+                      <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-amber-700 text-center md:text-left">
                         Mihir Raut
                       </h3>
                       <div className="h-1 w-24 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full mb-4 mx-auto md:mx-0"></div>
@@ -479,7 +479,7 @@ export default function Home() {
                       </p>
                     </div>
                     {/* Contact */}
-                    <div className="space-y-4 mt-6 md:mt-0">
+                    <div className="space-y-4 mt-4 md:mt-0">
                       <div className="p-4 bg-amber-50 rounded-lg border border-amber-200 shadow-sm text-center md:text-left">
                         <p className="text-sm text-amber-700 font-semibold mb-1">
                           Phone
