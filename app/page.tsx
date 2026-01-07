@@ -68,7 +68,7 @@ export default function Home() {
               <div className="h-16 w-16 rounded-full bg-gradient-to-br from-amber-400 via-amber-500 to-orange-500 flex items-center justify-center font-bold text-xl text-white shadow-xl shadow-amber-400/50 ring-2 ring-amber-300 overflow-hidden">
                 {/* Logo Image - Replace with your actual logo */}
                 <Image
-                  src="/logo.png"
+                  src="/logo2.png"
                   alt="Ayodhyam Kalaripayattu Academy Logo"
                   width={64}
                   height={64}
