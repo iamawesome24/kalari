@@ -1,6 +1,6 @@
 "use client";
+import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -8,12 +8,23 @@ import Loading from "@/components/loading";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Home() {
+
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const enableAudio = () => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio("/sword.mp3");
+      audioRef.current.volume = 1;
+      audioRef.current.play();
+    }
+  };
+
+
   const [isLoading, setIsLoading] = useState(true);
 
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    // Simulate loading
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -21,8 +32,13 @@ export default function Home() {
   }, []);
 
   if (isLoading) {
-    return <Loading />;
-  }
+  return (
+    <div onClick={enableAudio} className="cursor-pointer">
+      <Loading />
+    </div>
+  );
+}
+
 
   const media = [
     { type: "image", src: "/gallery/image-5.jpeg" },
