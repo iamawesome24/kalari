@@ -24,6 +24,8 @@ export default function Home() {
 
   const [index, setIndex] = useState(0);
 
+  const [factIndex, setFactIndex] = useState(0);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -32,12 +34,12 @@ export default function Home() {
   }, []);
 
   if (isLoading) {
-  return (
-    <div onClick={enableAudio} className="cursor-pointer">
-      <Loading />
-    </div>
-  );
-}
+    return (
+      <div onClick={enableAudio} className="cursor-pointer">
+        <Loading />
+      </div>
+    );
+  }
 
 
   const media = [
@@ -73,6 +75,22 @@ export default function Home() {
   const prev = () => setIndex((i) => (i === 0 ? media.length - 1 : i - 1));
 
   const next = () => setIndex((i) => (i === media.length - 1 ? 0 : i + 1));
+
+ const facts = [
+  "Bodhidharma is believed to have carried Kalaripayattu to Shaolin, inspiring early Chinese Kung Fu traditions.",
+  "British colonial authorities tried to restrict Kalaripayattu, fearing it could fuel organised resistance and uprisings.",
+  "Kalaripayattu is considered one of the oldest surviving martial arts systems in the world, dating back over 3,000 years.",
+  "Training traditionally begins with animal postures that develop flexibility, balance, and combat awareness.",
+  "Weapons training includes flexible swords like the urumi, a weapon rarely found in other martial arts.",
+  "Kalari training integrates Ayurveda and marma point knowledge for healing as well as combat effectiveness."
+];
+
+
+  const prevFact = () =>
+    setFactIndex((i) => (i === 0 ? facts.length - 1 : i - 1));
+
+  const nextFact = () =>
+    setFactIndex((i) => (i === facts.length - 1 ? 0 : i + 1));
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-amber-50 via-orange-50 to-red-50 text-slate-900">
@@ -234,6 +252,89 @@ export default function Home() {
               , an incarnation of Lord Vishnu, is believed to be the founder of
               this ancient martial art.
             </p>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Interesting Facts */}
+      <section className="py-20 bg-gradient-to-b from-amber-100/60 via-orange-100/60 to-red-100/60 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <motion.div
+            className="absolute -top-10 -left-10 w-40 h-40 bg-amber-300/20 rounded-full blur-3xl"
+            animate={{
+              x: [0, 20, 0],
+              y: [0, 10, 0],
+              opacity: [0.4, 0.7, 0.4],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute -bottom-10 -right-10 w-56 h-56 bg-orange-300/25 rounded-full blur-3xl"
+            animate={{
+              x: [0, -25, 0],
+              y: [0, -15, 0],
+              opacity: [0.4, 0.8, 0.4],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10 max-w-5xl mx-auto"
+        >
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent py-2"
+          >
+            Interesting Facts about Kalaripayattu
+          </motion.h2>
+          <div className="space-y-6 text-slate-800 text-lg leading-relaxed">
+            <div className="flex gap-4 items-start">
+              <div className="mt-2 h-2 w-2 rounded-full bg-gradient-to-br from-amber-500 to-red-500 flex-shrink-0" />
+              <p>{facts[factIndex]}</p>
+            </div>
+            <div className="flex items-center justify-between mt-4">
+              <button
+                onClick={prevFact}
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500 text-white shadow-md hover:bg-amber-600 transition-colors"
+              >
+                <ChevronLeft className="h-5 w-5" />
+                <span className="text-sm font-semibold">Previous</span>
+              </button>
+              <div className="flex gap-1">
+                {facts.map((_, i) => (
+                  <span
+                    key={i}
+                    className={`h-1.5 rounded-full transition-all ${
+                      i === factIndex
+                        ? "w-4 bg-amber-600"
+                        : "w-2 bg-amber-300"
+                    }`}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={nextFact}
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500 text-white shadow-md hover:bg-amber-600 transition-colors"
+              >
+                <span className="text-sm font-semibold">Next</span>
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
           </div>
         </motion.div>
       </section>
