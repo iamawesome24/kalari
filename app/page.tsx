@@ -76,15 +76,34 @@ export default function Home() {
 
   const next = () => setIndex((i) => (i === media.length - 1 ? 0 : i + 1));
 
- const facts = [
-  "Bodhidharma is believed to have carried Kalaripayattu to Shaolin, inspiring early Chinese Kung Fu traditions.",
-  "British colonial authorities tried to restrict Kalaripayattu, fearing it could fuel organised resistance and uprisings.",
-  "Kalaripayattu is considered one of the oldest surviving martial arts systems in the world, dating back over 3,000 years.",
-  "Training traditionally begins with animal postures that develop flexibility, balance, and combat awareness.",
-  "Weapons training includes flexible swords like the urumi, a weapon rarely found in other martial arts.",
-  "Kalari training integrates Ayurveda and marma point knowledge for healing as well as combat effectiveness."
-];
+  const facts = [
+    "Bodhidharma is believed to have carried Kalaripayattu to Shaolin, inspiring early Chinese Kung Fu traditions.",
+    "British colonial authorities tried to restrict Kalaripayattu, fearing it could fuel organised resistance and uprisings.",
+    "Kalaripayattu is considered one of the oldest surviving martial arts systems in the world, dating back over 3,000 years.",
+    "Training traditionally begins with animal postures that develop flexibility, balance, and combat awareness.",
+    "Weapons training includes flexible swords like the urumi, a weapon rarely found in other martial arts.",
+    "Kalari training integrates Ayurveda and marma point knowledge for healing as well as combat effectiveness.",
+  ];
 
+  const quotes = [
+    {
+      devanagari: "शरीरमाद्यं खलु धर्मसाधनम्॥",
+      translation: "The body is the foremost instrument for righteous action.",
+      emphasis: "Physical mastery and disciplined training.",
+    },
+    {
+      devanagari: "युद्धे चापल्यं त्यक्त्वा धैर्यमेव परं बलम्॥",
+      translation:
+        "In battle, abandoning restlessness, courage alone is supreme strength.",
+      emphasis: "Calm focus and unshaken warrior composure.",
+    },
+    {
+      devanagari: "वीर्यं विद्या च यस्यास्ति स विजेता न संशयः॥",
+      translation:
+        "He who possesses both strength and knowledge is undoubtedly victorious.",
+      emphasis: "Uniting technique, wisdom, and inner strength.",
+    },
+  ];
 
   const prevFact = () =>
     setFactIndex((i) => (i === 0 ? facts.length - 1 : i - 1));
@@ -141,25 +160,21 @@ export default function Home() {
       {/* Hero */}
       <section className="relative text-center overflow-hidden">
         <div className="relative min-h-screen flex items-center h-full overflow-hidden">
-          {/* BACKGROUND IMAGE */}
           <div
             className="absolute inset-0 bg-center bg-cover"
             style={{ backgroundImage: "url('/background.jpeg')" }}
           />
 
-          {/* RIGHT → LEFT FADE OVERLAY */}
           <div className="absolute inset-0 bg-gradient-to-l from-black/90 via-black/60 to-transparent" />
 
-          {/* SUBTLE WARM COLOR WASH */}
           <div className="absolute inset-0 bg-gradient-to-b from-amber-900/20 via-orange-900/10 to-red-900/20" />
 
-          {/* CONTENT - TOP RIGHT, shifted slightly left and down */}
           <div
             className="
               absolute top-28
               left-1/2 -translate-x-1/2
               text-center
-              z-10 max-w-lg
+              z-20 max-w-lg
               md:left-auto md:translate-x-0 md:right-16 md:text-right
             "
           >
@@ -191,6 +206,35 @@ export default function Home() {
             >
               Strength of mind is more important than strength of body
             </motion.p>
+          </div>
+
+          <div className="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 z-20 w-full px-3 sm:px-4 md:px-8">
+            <div className="max-w-5xl mx-auto flex gap-3 sm:gap-4 overflow-x-auto md:overflow-visible pb-2 sm:pb-3 snap-x snap-mandatory">
+              {quotes.map((quote, i) => (
+                <motion.div
+                  key={quote.devanagari}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 * i }}
+                  whileHover={{
+                    y: -4,
+                    scale: 1.02,
+                  }}
+                  className="min-w-[80%] sm:min-w-[260px] md:min-w-[320px] max-w-sm snap-center rounded-2xl bg-black/60 border border-amber-400/50 shadow-xl backdrop-blur-md px-4 py-3 sm:py-4 md:px-6 md:py-5 text-left"
+                >
+                  <p className="text-base sm:text-lg md:text-xl font-semibold text-amber-100 leading-relaxed mb-1 sm:mb-2">
+                    {quote.devanagari}
+                  </p>
+                  <p className="text-[11px] sm:text-xs md:text-sm text-amber-50/90 leading-relaxed mb-2 sm:mb-3">
+                    “{quote.translation}”
+                  </p>
+                  <p className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] md:text-xs font-medium text-amber-200 bg-amber-900/60 rounded-full px-3 py-1">
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                    {quote.emphasis}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
